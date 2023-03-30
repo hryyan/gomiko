@@ -1,4 +1,4 @@
-module github.com/Ali-aqrabawi/gomiko
+module github.com/hryyan/gomiko
 
 go 1.12
 
