@@ -2,9 +2,10 @@ package driver
 
 import (
 	"errors"
-	"github.com/Ali-aqrabawi/gomiko/pkg/connections"
 	"regexp"
 	"time"
+
+	"github.com/Ali-aqrabawi/gomiko/pkg/connections"
 )
 
 type Driver struct {
@@ -84,13 +85,12 @@ func (d *Driver) ReadUntil(pattern string) (string, error) {
 		case recv := <-buffChan:
 			outputChan <- recv
 
-		case <-time.After(time.Duration(4) * time.Second):
+		case <-time.After(time.Duration(30) * time.Second):
 			err = errors.New("timeout while reading, read pattern not found pattern: " + pattern)
 			close(outputChan)
 		}
 
 	}(d, pattern)
-
 
 	return <-outputChan, err
 
