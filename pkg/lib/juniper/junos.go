@@ -2,16 +2,15 @@ package juniper
 
 import (
 	"errors"
-	"github.com/Ali-aqrabawi/gomiko/pkg/driver"
 	"strings"
+
+	"github.com/hryyan/gomiko/pkg/driver"
 )
 
 type JunOSDevice struct {
 	Driver     driver.IDriver
 	DeviceType string
 	Prompt     string
-
-
 }
 
 func (d *JunOSDevice) Connect() error {

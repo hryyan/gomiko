@@ -1,14 +1,15 @@
 package gomiko
 
 import (
-	"github.com/Ali-aqrabawi/gomiko/pkg/connections"
-	"github.com/Ali-aqrabawi/gomiko/pkg/lib/arista"
-	"github.com/Ali-aqrabawi/gomiko/pkg/lib/cisco"
-	"github.com/Ali-aqrabawi/gomiko/pkg/lib/juniper"
-	"github.com/Ali-aqrabawi/gomiko/pkg/lib/mikrotik"
-	"github.com/Ali-aqrabawi/gomiko/pkg/types"
-	"github.com/pkg/errors"
 	"strings"
+
+	"github.com/hryyan/gomiko/pkg/connections"
+	"github.com/hryyan/gomiko/pkg/lib/arista"
+	"github.com/hryyan/gomiko/pkg/lib/cisco"
+	"github.com/hryyan/gomiko/pkg/lib/juniper"
+	"github.com/hryyan/gomiko/pkg/lib/mikrotik"
+	"github.com/hryyan/gomiko/pkg/types"
+	"github.com/pkg/errors"
 )
 
 func NewDevice(Host string, Username string, Password string, DeviceType string, Port uint8, Options ...DeviceOption) (types.Device, error) {

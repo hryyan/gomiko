@@ -1,7 +1,7 @@
 package mikrotik
 
 import (
-	"github.com/Ali-aqrabawi/gomiko/pkg/driver"
+	"github.com/hryyan/gomiko/pkg/driver"
 )
 
 type MikroTikRouterOS struct {
@@ -33,7 +33,6 @@ func (d *MikroTikRouterOS) Disconnect() {
 func (d *MikroTikRouterOS) SendCommand(cmd string) (string, error) {
 
 	result, err := d.Driver.SendCommand(cmd, d.Prompt)
-
 
 	return result, err
 

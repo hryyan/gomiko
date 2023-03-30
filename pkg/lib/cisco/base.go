@@ -2,10 +2,10 @@ package cisco
 
 import (
 	"errors"
-	"github.com/Ali-aqrabawi/gomiko/pkg/driver"
 	"strings"
-)
 
+	"github.com/hryyan/gomiko/pkg/driver"
+)
 
 type CSCODevice struct {
 	Driver     driver.IDriver
