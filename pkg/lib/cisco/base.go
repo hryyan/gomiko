@@ -2,6 +2,7 @@ package cisco
 
 import (
 	"errors"
+	"fmt"
 	"strings"
 
 	"github.com/hryyan/gomiko/pkg/driver"
@@ -18,7 +19,7 @@ func (d *CSCODevice) Connect() error {
 	if err := d.Driver.Connect(); err != nil {
 		return err
 	}
-	prompt, err := d.Driver.FindDevicePrompt("\r?(.*)[#>]", "#|>")
+	prompt, err := d.Driver.FindDevicePrompt("\r?(.*)\\.[\\d:]+[#>]", "#|>")
 
 	if err != nil {
 		return err
@@ -39,6 +40,7 @@ func (d *CSCODevice) SetSecret(secret string) {
 
 func (d *CSCODevice) SendCommand(cmd string) (string, error) {
 
+	fmt.Println("Sending command: " + cmd)
 	result, err := d.Driver.SendCommand(cmd, d.Prompt)
 
 	return result, err

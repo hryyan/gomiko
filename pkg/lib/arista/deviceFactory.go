@@ -18,7 +18,6 @@ func NewDevice(connection connections.Connection, DeviceType string) (types.Cisc
 	}
 	if DeviceType != "arista_eos" {
 		return nil, errors.New("unsupported Arista device type: " + DeviceType)
-
 	}
 
 	return &EOSDevice{

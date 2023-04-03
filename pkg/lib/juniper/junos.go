@@ -17,7 +17,7 @@ func (d *JunOSDevice) Connect() error {
 	if err := d.Driver.Connect(); err != nil {
 		return err
 	}
-	prompt, err := d.Driver.FindDevicePrompt("(@.*)[#>%]", "%")
+	prompt, err := d.Driver.FindDevicePrompt("(.*@.*)[#>%]", ">")
 	if err != nil {
 		return err
 	}
