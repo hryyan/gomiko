@@ -9,6 +9,7 @@ import (
 	"github.com/hryyan/gomiko/pkg/lib/juniper"
 	"github.com/hryyan/gomiko/pkg/lib/mikrotik"
 	"github.com/hryyan/gomiko/pkg/lib/sros"
+	"github.com/hryyan/gomiko/pkg/lib/centec"
 	"github.com/hryyan/gomiko/pkg/types"
 	"github.com/pkg/errors"
 )
@@ -38,6 +39,8 @@ func NewDevice(Host string, Username string, Password string, DeviceType string,
 		device, err = mikrotik.NewDevice(connection, DeviceType)
 	} else if strings.Contains(DeviceType, "nokia_sros") {
 		device, err = sros.NewDevice(connection, DeviceType)
+	} else if strings.Contains(DeviceType, "centec") {
+		device, err = centec.NewDevice(connection, DeviceType)
 	} else {
 		return nil, errors.New("DeviceType not supported: " + DeviceType)
 	}
