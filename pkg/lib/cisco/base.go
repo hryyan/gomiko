@@ -19,7 +19,7 @@ func (d *CSCODevice) Connect() error {
 	if err := d.Driver.Connect(); err != nil {
 		return err
 	}
-	prompt, err := d.Driver.FindDevicePrompt("\r?(.*)\\.[\\d:]+[#>]", "#|>")
+	prompt, err := d.Driver.FindDevicePrompt("\r\n?(\\S+)[#>]", "#|>")
 
 	if err != nil {
 		return err
