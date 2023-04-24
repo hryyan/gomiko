@@ -2,7 +2,6 @@ package cisco
 
 import (
 	"errors"
-	"fmt"
 	"strings"
 
 	"github.com/hryyan/gomiko/pkg/driver"
