@@ -40,7 +40,6 @@ func (d *CSCODevice) SetSecret(secret string) {
 
 func (d *CSCODevice) SendCommand(cmd string) (string, error) {
 
-	fmt.Println("Sending command: " + cmd)
 	result, err := d.Driver.SendCommand(cmd, d.Prompt)
 
 	return result, err
